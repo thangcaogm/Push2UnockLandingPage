@@ -176,6 +176,42 @@ section { padding: 80px 0; }
 .callout { background: rgba(198,244,50,0.08); border: 1px solid rgba(198,244,50,0.25); border-radius: 14px; padding: 20px 24px; margin: 24px 0; }
 .callout p { color: var(--paper); margin: 0; }
 
+/* ---------- Help & Support ---------- */
+.help-cards { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); margin: 8px 0 44px; }
+@media (max-width: 860px) { .help-cards { grid-template-columns: 1fr; } }
+.help-card {
+  background: var(--ink-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; transition: border-color .15s ease, transform .15s ease;
+}
+.help-card:hover { border-color: var(--volt); transform: translateY(-3px); }
+.help-card .ico { font-size: 26px; margin-bottom: 12px; }
+.help-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.help-card p { color: var(--fog); font-size: 14px; margin-bottom: 12px; }
+.help-card a { font-weight: 700; font-size: 14px; }
+
+.faq details {
+  border: 1px solid var(--border); border-radius: 14px; background: var(--ink-card);
+  margin-bottom: 12px; overflow: hidden;
+}
+.faq details[open] { border-color: rgba(198,244,50,0.35); }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 18px 22px;
+  font-weight: 700; font-size: 16px; color: var(--paper);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; color: var(--volt); font-size: 22px; font-weight: 700;
+  line-height: 1; flex: none; transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--volt); }
+.faq .body { padding: 0 22px 20px; }
+.faq .body p, .faq .body li { color: #C9CFD6; font-size: 15px; margin-bottom: 12px; }
+.faq .body ul, .faq .body ol { padding-left: 22px; margin-bottom: 12px; }
+.faq .body li { margin-bottom: 6px; }
+.faq .body strong { color: var(--paper); }
+
 /* ============ Phone mockups ============ */
 .device {
   position: relative;
