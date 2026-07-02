@@ -44,8 +44,7 @@ a:hover { text-decoration: underline; }
 .brand:hover { text-decoration: none; }
 .brand .mark {
   width: 34px; height: 34px; border-radius: 10px;
-  background: var(--volt); color: var(--ink);
-  display: grid; place-items: center; font-size: 18px; font-weight: 900;
+  object-fit: cover; display: block; flex: none;
 }
 .nav-links { display: flex; gap: 28px; align-items: center; }
 .nav-links a { color: var(--fog); font-size: 15px; font-weight: 600; }
