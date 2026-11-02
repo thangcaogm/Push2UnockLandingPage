@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Push2Unlock</title>
-  <meta name="description" content="Push2Unlock Privacy Policy. All pose detection is on-device. No video ever leaves your phone. No account required." />
+  <meta name="description" content="Push2Unlock Privacy Policy. All pose detection is on-device. No video ever leaves your phone. No account required. Anonymous usage analytics only." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -26,18 +26,21 @@
   <main class="legal">
     <div class="wrap">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: June 22, 2026 · Effective: June 22, 2026</p>
+      <p class="updated">Last updated: November 2, 2026 · Effective: November 2, 2026</p>
 
       <p class="lead">
         Push2Unlock is built privacy-first. All exercise detection happens entirely on your device,
-        no video is ever recorded or transmitted, and the app works without any account. This policy
-        explains exactly what the app does and does not do with your information.
+        no video is ever recorded or transmitted, and the app works without any account. To improve the
+        app we collect anonymous usage analytics that are not tied to your identity. This policy explains
+        exactly what the app does and does not do with your information.
       </p>
 
       <div class="callout">
-        <p><strong>The short version:</strong> Your camera feed never leaves your iPhone. We don't
-        collect, store, or sell your personal data. There is no sign-up. Purchases are handled by
-        Apple, not by us.</p>
+        <p><strong>The short version:</strong> Your camera feed never leaves your iPhone. There is no
+        sign-up, and we never collect your name, email, or contacts. We send anonymous usage analytics
+        (which screens you use, workout results, purchase steps) to PostHog to improve the app, and
+        purchase status to RevenueCat to unlock your subscription. We never sell your data, show ads,
+        or track you across other apps.</p>
       </div>
 
       <div class="toc">
@@ -47,6 +50,7 @@
           <li><a href="#camera">Camera & on-device processing</a></li>
           <li><a href="#collect">Information we do and don't collect</a></li>
           <li><a href="#screentime">Screen Time & blocking data</a></li>
+          <li><a href="#analytics">Anonymous usage analytics</a></li>
           <li><a href="#purchases">Subscriptions & purchases</a></li>
           <li><a href="#thirdparty">Third-party services</a></li>
           <li><a href="#storage">Data storage & iCloud</a></li>
@@ -90,18 +94,28 @@
       <h2 id="collect">3. Information we do and don't collect</h2>
       <h3>We do not collect</h3>
       <ul>
-        <li>Your name, email, phone number, or any account credentials — there is no account.</li>
+        <li>Your name, email, phone number, or any account credentials — there is no account. The
+          first name you type during onboarding stays on your device.</li>
         <li>Camera footage, photos, or any biometric template.</li>
-        <li>Contacts, location, microphone audio, or browsing history.</li>
-        <li>Advertising identifiers. The app contains no ads and no third-party advertising SDKs.</li>
+        <li>Contacts, precise location, microphone audio, or browsing history.</li>
+        <li>Which apps are installed on your phone or which apps you block.</li>
+        <li>Advertising identifiers (IDFA). The app contains no ads and no advertising SDKs, and we do
+          not track you across other companies' apps or websites.</li>
+      </ul>
+      <h3>We do collect (anonymously)</h3>
+      <ul>
+        <li>Anonymous usage analytics, described in Section 5.</li>
+        <li>Subscription status and purchase history needed to unlock Pro, described in Section 6.</li>
       </ul>
       <h3>Stored on your device only</h3>
       <p>
         The following is created and stored locally on your iPhone to make the app work. It stays on
-        your device (and your private iCloud, if enabled — see Section 7) and is not sent to us:
+        your device (and your private iCloud, if enabled — see Section 8). These records themselves are
+        not sent to us:
       </p>
       <ul>
-        <li>Your workout history (exercise type, rep counts, dates, durations).</li>
+        <li>Your full workout history (exercise type, rep counts, dates, durations). Individual
+          workout results are also included in anonymous analytics — see Section 5.</li>
         <li>Your stats, streaks, and daily quest progress.</li>
         <li>Your app settings, blocking modes, and schedules.</li>
         <li>Your selection of apps to block (stored as opaque system tokens — see Section 4).</li>
@@ -114,35 +128,89 @@
         tokens — not app names or identifiers we can read. We cannot see which specific apps you
         block; only the system can resolve those tokens. This selection is stored locally on your
         device and shared only between Push2Unlock's own app extensions on your phone. It is never
-        transmitted to us or any third party.
+        transmitted to us or any third party. Analytics only ever include a <em>count</em> of selected
+        apps, categories, and websites — never which ones.
       </p>
 
-      <h2 id="purchases">5. Subscriptions & purchases</h2>
+      <h2 id="analytics">5. Anonymous usage analytics</h2>
       <p>
-        Push2Unlock offers auto-renewing subscriptions and a one-time lifetime purchase. All payments
-        are processed entirely by <strong>Apple</strong> through the App Store using your Apple ID.
-        We never receive or store your payment details, credit card numbers, or billing address.
+        To understand which features help people and where the app falls short, Push2Unlock sends
+        anonymous usage events to <strong>PostHog</strong> (PostHog, Inc., servers in the United
+        States). The app creates a random identifier when it is first installed and attaches it to these
+        events. This identifier is not linked to your name, email, Apple ID, or any account, and we do
+        not try to identify who you are.
+      </p>
+      <h3>What is sent</h3>
+      <ul>
+        <li><strong>App usage:</strong> app opens, which screens you view, onboarding steps completed,
+          buttons such as starting a lock or ending a break early, and settings you change (for example
+          language or iCloud sync).</li>
+        <li><strong>Workout results:</strong> exercise type, target and completed reps, workout duration,
+          the break length you chose, and whether the workout was completed or quit. Only these numbers
+          are sent — never camera frames or body-pose data.</li>
+        <li><strong>Onboarding answers:</strong> the choices you tap in the onboarding quiz — goals,
+          estimated and ideal daily screen time, which kinds of apps distract you (picked from a list),
+          main focus, and age range. Your typed name is never sent.</li>
+        <li><strong>Subscription steps:</strong> paywall views, which plan you tried to buy, and whether
+          the purchase succeeded, was cancelled, or failed.</li>
+        <li><strong>Permission results:</strong> whether you allowed Screen Time, notifications, and
+          camera access.</li>
+        <li><strong>Device and app information:</strong> device model, iOS version, app version, app
+          language, and time zone.</li>
+      </ul>
+      <p>
+        Like any internet request, sending events reveals your device's IP address to PostHog, which
+        may use it to estimate an approximate location (such as country or city). We do not use this to
+        identify you.
+      </p>
+      <h3>How it is used</h3>
+      <p>
+        Analytics are used only to fix problems and improve Push2Unlock — for example, to see where
+        people get stuck in onboarding or which exercises they prefer. They are never used for
+        advertising or marketing, never combined with data from other companies, and never sold or
+        shared with data brokers. Workout results are used only to improve the app's workout and
+        rep-counting experience. We keep analytics only as long as they are useful for improving the app.
       </p>
       <p>
-        The app verifies your purchase status through Apple's StoreKit so it knows whether your
-        subscription is active. This entitlement status is kept on your device. Apple's handling of
-        your purchase is governed by
+        PostHog processes this data on our behalf under its own privacy and security commitments; see
+        <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog's Privacy Policy</a>.
+      </p>
+
+      <h2 id="purchases">6. Subscriptions & purchases</h2>
+      <p>
+        Push2Unlock offers auto-renewing subscriptions. All payments are processed entirely by
+        <strong>Apple</strong> through the App Store using your Apple ID. We never receive or store your
+        payment details, credit card numbers, or billing address.
+      </p>
+      <p>
+        To check whether your subscription is active, the app uses <strong>RevenueCat</strong>
+        (RevenueCat, Inc.). RevenueCat receives an anonymous app user ID generated by the app, your
+        App Store purchase receipts and transaction history for Push2Unlock, and basic device and app
+        information (such as iOS version, app version, country/storefront, and IP address). It does not
+        receive your name, email, or payment card. This data is used only to validate purchases, restore
+        them, and report subscription status to us. See
+        <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>.
+        Apple's handling of your purchase is governed by
         <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.
       </p>
 
-      <h2 id="thirdparty">6. Third-party services</h2>
+      <h2 id="thirdparty">7. Third-party services</h2>
       <p>Push2Unlock relies on the following, and nothing more:</p>
       <ul>
         <li><strong>Apple App Store / StoreKit</strong> — for subscriptions and purchases.</li>
+        <li><strong>RevenueCat</strong> — to validate and restore subscriptions (see Section 6).</li>
+        <li><strong>PostHog</strong> — for anonymous usage analytics (see Section 5).</li>
         <li><strong>Apple iCloud (optional)</strong> — to sync your own data across your devices, if
-          you have iCloud enabled (see Section 7).</li>
+          you have iCloud enabled (see Section 8).</li>
       </ul>
       <p>
-        We do not integrate any third-party analytics, advertising, tracking, or crash-reporting SDKs
-        that profile you. We do not sell, rent, or share your personal information with anyone.
+        Each of these providers handles data only to provide its service to us and is required to
+        protect it at least as well as described in this policy. We do not use any advertising,
+        cross-app tracking, or data-broker services, and we do not sell or rent your information to
+        anyone.
       </p>
 
-      <h2 id="storage">7. Data storage & iCloud</h2>
+      <h2 id="storage">8. Data storage & iCloud</h2>
       <p>
         Your workouts, stats, and settings are stored on your device. If you have iCloud enabled, this
         data may sync to your private iCloud account so it is available across your devices and can be
@@ -151,46 +219,57 @@
         deleting the app and removing its data from iCloud in your device settings.
       </p>
 
-      <h2 id="rights">8. Your rights & choices</h2>
+      <h2 id="rights">9. Your rights & choices</h2>
       <p>
-        Because we don't collect or hold your personal data on any server, there is nothing on our
-        side to request, export, or delete. You remain in full control:
+        Your workouts, stats, and settings live on your device, not on our servers. The only data held
+        by our providers is the anonymous analytics and subscription data described in Sections 5 and 6.
+        You remain in control:
       </p>
       <ul>
-        <li><strong>Access / portability:</strong> all your data is on your device and visible in the
-          app's Stats screen.</li>
-        <li><strong>Deletion:</strong> deleting the app removes its local data; you can also clear its
-          iCloud data from device settings.</li>
-        <li><strong>Permissions:</strong> revoke Camera or Screen Time access anytime in iOS Settings.</li>
+        <li><strong>Access / portability:</strong> your workout data is on your device and visible in
+          the app's Stats screen.</li>
+        <li><strong>Deletion:</strong> deleting the app removes its local data and its anonymous
+          analytics identifier; a reinstall starts with a new, unrelated identifier. You can also clear
+          the app's iCloud data from device settings.</li>
+        <li><strong>Analytics and subscription data:</strong> email us to ask for analytics or
+          subscription data to be deleted. Because this data is anonymous,
+          we may need details from you (such as the approximate date you installed the app) to find it.</li>
+        <li><strong>Permissions:</strong> revoke Camera, Screen Time, or notification access anytime in
+          iOS Settings.</li>
       </ul>
       <p>
-        If you are in the EEA/UK (GDPR) or California (CCPA/CPRA), the same applies — we are not a
-        controller or seller of your personal information because we do not collect it. We do not sell
-        or "share" personal information as those terms are defined under applicable law.
+        If you are in the EEA/UK (GDPR), we process anonymous analytics on the basis of our legitimate
+        interest in improving the app, and subscription data to perform our contract with you. You may
+        request access to or deletion of this data by contacting us. If you are in California
+        (CCPA/CPRA), we do not sell or "share" personal information as those terms are defined under
+        applicable law.
       </p>
 
-      <h2 id="children">9. Children's privacy</h2>
+      <h2 id="children">10. Children's privacy</h2>
       <p>
         Push2Unlock is not directed to children under 13 (or the minimum age of digital consent in
-        your country). We do not knowingly collect personal information from children. Because the app
-        collects no personal data at all, no such information is gathered regardless of a user's age.
+        your country). We do not knowingly collect personal information from children. The analytics
+        described in Section 5 are anonymous and never include a name, email, birthdate, or precise
+        location; onboarding only records a broad age range. If you believe a child has provided
+        personal information, contact us and we will delete it.
       </p>
 
-      <h2 id="security">10. Security</h2>
+      <h2 id="security">11. Security</h2>
       <p>
         Your data is protected by your device's hardware encryption and iOS sandboxing. Sensitive
-        processing (rep detection) happens in-memory and is never persisted. Because we operate no
-        servers that store your personal data, there is no central database to breach.
+        processing (rep detection) happens in-memory and is never persisted. Analytics and subscription
+        data are sent over encrypted connections (HTTPS) to PostHog and RevenueCat, which store them
+        securely. We operate no servers of our own that store your personal data.
       </p>
 
-      <h2 id="changes">11. Changes to this policy</h2>
+      <h2 id="changes">12. Changes to this policy</h2>
       <p>
         We may update this Privacy Policy from time to time. When we do, we will revise the "Last
         updated" date above and, for material changes, provide notice within the app. Continued use of
         Push2Unlock after changes take effect constitutes acceptance of the updated policy.
       </p>
 
-      <h2 id="contact">12. Contact us</h2>
+      <h2 id="contact">13. Contact us</h2>
       <p>
         Questions about this policy or your privacy? Reach us at
         <a href="mailto:victor@xboostapp.io">victor@xboostapp.io</a> and we'll respond as soon as we
